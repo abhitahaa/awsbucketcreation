@@ -29,21 +29,16 @@ resource "aws_iam_policy" "iam_policy_for_lambda" {
  description  = "AWS IAM Policy for managing aws lambda role"
  policy = <<EOF
 {
- "Version": "2012-10-17",
- "Statement": [
-   {
-     "Action": [
-       "logs:CreateLogGroup",
-       "logs:CreateLogStream",
-       "logs:PutLogEvents"
-     ],
-     "Resource": "arn:aws:logs:*:*:*",
-     "Effect": "Allow"
-   }
- ]
-}
-EOF
-}
+     "Version" : "2012-10-17",
+     "Statement" : [
+         {
+             "Sid" : "VisualEditor0",
+             "Effect" : "Allow",
+             "Action" : "s3.GetObject",
+             "Resource" : "arn:aws:S3:::*"
+         }
+     ]
+ }
 
 ### Attach IAM Policy to IAM Role ###
 
